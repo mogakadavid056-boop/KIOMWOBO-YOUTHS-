@@ -1,0 +1,197 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Cinzel Decorative', Georgia, serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-script: 'Great Vibes', cursive;
+    --font-ui: 'Montserrat', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+    --color-midnight: #080610;
+    --color-royal-purple: #31005F;
+    --color-electric-violet: #8B24FF;
+    --color-lavender: #C7A4FF;
+    --color-metallic-gold: #D4AF37;
+    --color-champagne-gold: #F5D88A;
+    --color-silver-white: #F5F1FF;
+  }
+
+  html {
+    font-family: var(--font-body);
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: #F6F3FC;
+    color: #161024;
+    overflow-x: hidden;
+  }
+
+  html.dark body {
+    background-color: #080610;
+    color: #F5F1FF;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Typography Families */
+.font-royal-display {
+  font-family: var(--font-display);
+}
+
+.font-royal-serif {
+  font-family: var(--font-serif);
+}
+
+.font-royal-script {
+  font-family: var(--font-script);
+}
+
+.font-royal-ui {
+  font-family: var(--font-ui);
+}
+
+.font-royal-body {
+  font-family: var(--font-body);
+}
+
+/* Metallic Gold Gradient Title (Strictly for logo & major royal titles) */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F5D88A 0%, #D4AF37 52%, #F5D88A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.28));
+}
+
+/* Glass Card System */
+.royal-glass {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(168, 128, 32, 0.32);
+  box-shadow: 0 12px 36px rgba(24, 12, 48, 0.1);
+}
+
+html.dark .royal-glass {
+  background: rgba(8, 6, 16, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+.royal-glass-elevated {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 128, 32, 0.38);
+  box-shadow: 0 18px 44px rgba(24, 12, 48, 0.14);
+}
+
+html.dark .royal-glass-elevated {
+  background: rgba(14, 10, 26, 0.84);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.36);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.58);
+}
+
+/* Active Violet Glow */
+.violet-glow {
+  box-shadow: 0 0 20px rgba(139, 36, 255, 0.38), inset 0 0 10px rgba(199, 164, 255, 0.14);
+}
+
+/* Thin Gold Divider */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.55) 50%, transparent 100%);
+}
+
+/* Exact Full-Screen Background Canvases */
+:root {
+  --bg-login-image: url('/assets/bg-login.png');
+  --bg-home-image: url('/assets/bg-home.png');
+  --bg-profile-image: url('/assets/bg-profile.png');
+}
+
+.bg-canvas-login {
+  background-color: #080610;
+  background-image:
+    var(--bg-login-image),
+    radial-gradient(circle at 50% 22%, rgba(139, 36, 255, 0.34), rgba(49, 0, 95, 0.5) 42%, #080610 85%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-canvas-home {
+  background-color: #080610;
+  background-image:
+    var(--bg-home-image),
+    radial-gradient(circle at 50% 15%, rgba(49, 0, 95, 0.72), #080610 80%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.bg-canvas-profile {
+  background-color: #080610;
+  background-image:
+    var(--bg-profile-image),
+    radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.24), rgba(49, 0, 95, 0.65) 45%, #080610 85%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Ambient Soft Violet Particles */
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.22;
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) scale(1.15);
+    opacity: 0.52;
+  }
+}
+
+.animate-particle {
+  animation: floatParticle 7s ease-in-out infinite;
+}
+
+/* Safe area bottom padding for mobile PWA */
+.pb-safe {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.45);
+}

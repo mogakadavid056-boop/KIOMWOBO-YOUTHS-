@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">KIOMWOBO YOUTHS</string>
+    <string name="title_activity_main">KIOMWOBO YOUTHS</string>
+    <string name="package_name">org.kiomwobo.youths</string>
+    <string name="custom_url_scheme">org.kiomwobo.youths</string>
+</resources>

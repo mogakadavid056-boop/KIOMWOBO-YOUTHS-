@@ -1,0 +1,6 @@
+{
+  "name": "KIOMWOBO YOUTHS",
+  "description": "The official youth network of Kiomwobo District (Seventh-day Adventist Church). Connect, study Scripture, sing hymns, share prayers, and grow together across all seven churches.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
